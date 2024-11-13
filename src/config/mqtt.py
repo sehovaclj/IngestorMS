@@ -5,6 +5,7 @@ Reads from a `.env` file to set MQTT connection parameters.
 """
 
 import os
+import uuid
 from dotenv import load_dotenv
 
 # Load .env file
@@ -21,3 +22,4 @@ class MqttConfig:
     PORT = int(os.getenv('PORT'))
     SHARED_TOPIC_METRICS = os.getenv('SHARED_TOPIC_METRICS')
     SHARED_TOPIC_SHUTDOWN = os.getenv('SHARED_TOPIC_SHUTDOWN')
+    CLIENT_ID = f"client_{uuid.uuid4()}"
