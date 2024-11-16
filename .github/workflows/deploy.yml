@@ -74,6 +74,6 @@ jobs:
       # which can update the Microservice via a rolling update.
       - name: Notify Central Server
         run: |
-          curl -X POST https://your-central-server.com/notify/RestApiServerMS \
+          curl -X POST https://your-central-server.com/notify/IngestorMS \
             -H "Content-Type: application/json" \
             -d '{"image": "your-dockerhub-username/your-app-name:latest"}'
