@@ -23,7 +23,7 @@ in the EMS system.
 Here is a visualization of the IngestorMS's role within the Pipeline
 architecture:
 
-![Pipeline Diagram](images/IngestorMS_in_Pipeline.png "Pipeline Diagram")
+![Pipeline Diagram](assets/images/IngestorMS_in_Pipeline.png "Pipeline Diagram")
 
 ## Installation
 
