@@ -27,7 +27,8 @@ architecture:
 
 ## Installation
 
-> **Note**: This guide is for local installation.
+> **Note**: This guide is for local installation. You may need `sudo`
+> privileges to execute some of these commands.
 
 ### Prerequisites
 
@@ -89,35 +90,27 @@ NUM_PARTITIONS=
 > limited amount of time, especially since the Pipeline is intended to run
 > "on-premise".
 
-### Stopping
+### Teardown
 
-- Make the stop script executable:
-    ```bash
-    chmod +x stop_docker_containers.sh
-    ```
-- Run the stop script:
-    ```bash
-    ./stop_docker_containers.sh
-    ```
-
-### Cleanup
-
-- Make the removal script executable:
+- Make the teardown script executable:
   ```bash
-  chmod +x rm_docker_images_containers.sh
+  chmod +x teardown.sh
   ```
-- Run the removal script:
+- Run the teardown script:
 
     ```bash
-    ./rm_docker_images_containers.sh
+    ./teardown.sh
     ```
+
+- This will simply remove any docker images and containers associated with
+  this specific Microservice.
 
 ## Usage
 
-- To view the logs of a running Docker container, say the first one, use the
+- To view the logs of a running Docker container, e.g. the first one, use the
   following command:
   ```bash
-    sudo docker logs -f ingestor_ms_simulation_container_1
+    docker logs -f ingestor_ms_simulation_container_1
     ```
 - Once you confirm that at least one instance of IngestorMS is running, start
   the C code. As soon as the C code is active, you should see the Docker logs
