@@ -27,8 +27,8 @@ architecture:
 
 ## Installation
 
-> **Note**: This guide is for local installation. You may need `sudo`
-> privileges to execute some of these commands.
+**Note**: This guide is for local installation. You may need `sudo`
+privileges to execute some of these commands.
 
 ### Prerequisites
 
@@ -73,22 +73,23 @@ NUM_PARTITIONS=
     ```
   This will create and start 3 separate Docker containers.
 
-> **Note**: This script is intended to simulate a CI/CD deployment. The
-> actual `.github/workflows/deploy.yml` is simply a placeholder and would
-> be the next stage in the development process. Hence, this script will do
-> the following:
-> - stop and remove all previously running docker containers and images
-    with the same name and prefix (ensures a clean build)
-> - lint the project in accordance with PEP 8 standards with `pylint .`
-> - run unit tests with `pytest -v`
-> - build the docker image
-> - then run X docker containers with that same image (meant to signify
-    a scalable Microservice)
->
-> For the purpose of the demo, I figured simulating a CI/CD deployment
-> pipeline via bash script would be easier to show/explain in a
-> limited amount of time, especially since the Pipeline is intended to run
-> "on-premise".
+**Note**: This script is intended to simulate a CI/CD deployment. The
+actual `.github/workflows/deploy.yml` is simply a placeholder and would
+be the next stage in the development process. Hence, this script will do
+the following:
+
+- stop and remove all previously running docker containers and images
+  with the same name and prefix (ensures a clean build)
+- lint the project in accordance with PEP 8 standards with `pylint .`
+- run unit tests with `pytest -v`
+- build the docker image
+- then run X docker containers with that same image (meant to signify
+  a scalable Microservice)
+
+For the purpose of the demo, I figured simulating a CI/CD deployment
+pipeline via bash script would be easier to show/explain in a
+limited amount of time, especially since the Pipeline is intended to run
+"on-premise".
 
 ### Teardown
 
@@ -112,10 +113,18 @@ NUM_PARTITIONS=
   ```bash
     docker logs -f ingestor_ms_simulation_container_1
     ```
-- Once you confirm that at least one instance of IngestorMS is running, start
-  the C code. As soon as the C code is active, you should see the Docker logs
-  updating
-  in near real-time.
+
+Once you confirm that at least one instance of IngestorMS is running, start
+the C code. As soon as the C code is active, you should see the Docker logs
+updating
+in near real-time.
+
+**Note:** In a production environment, the logs would typically be redirected
+to a
+file and integrated with an ELK stack (Elasticsearch, Logstash, and Kibana) to
+enable visualization and analysis on a dashboard. However, for the purposes of
+this demo, I opted against introducing additional overhead to the Docker
+container to minimize latency as much as possible.
 
 ## Testing
 
